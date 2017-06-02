@@ -9,7 +9,11 @@
   </head>
   <body>
     <div class="container">
-      <div class="jumbotron"><h1>Home Page</h1></div>
+      <div class="jumbotron">
+        <h1>Home Page</h1>
+        <br>
+        <a href="/login">Login</a>
+      </div>
       <br>
       <a href="/new">Create a new User</a>
       <br>
@@ -17,7 +21,7 @@
         <p>Email: <a href="/<%= users[xx]._id %>"><%= users[xx].email %></a><br>
         </p>
         <p>Password: <%= users[xx].password %></p>
-        <a href="/<%= users[xx]._id %>/edit/">Edit <%= users[xx].email %></a>
+        <a href="/<%= users[xx]._id %>/edit">Edit <%= users[xx].email %></a>
         <br>
         <form action="/<%= users[xx]._id %>/destroy" method='post'>
           <input type="submit" value="Delete">
