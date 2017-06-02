@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
+var User = require('../models/user');
 mongoose.Promise = global.Promise;
 
 module.exports = {
@@ -15,9 +16,10 @@ module.exports = {
   },
 
   create: function(req,res) {
-    var users = new User({email: req.body.email, password: req.body.password});
-
-    users.save(function(err) {
+    var user = new User();
+    user.email = req.body.email;
+    user.password = user.generateHash(req.body.password);
+    user.save(function(err) {
       if(err) {
         console.log("Something went wrong with creating new user");
       } else {
@@ -51,7 +53,7 @@ module.exports = {
   update: function(req, res) {
     User.findOne({_id: req.params.id}, function(err, user) {
       user.email = req.body.email;
-      user.password = req.body.password;
+      user.password = user.generateHash(req.body.password);
       user.save(function(err) {
         if(err) {console.log('something went wrong with updating user');
         } else {
