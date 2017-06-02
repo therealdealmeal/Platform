@@ -1,0 +1,9 @@
+<h1>Email: <%=users.email%></h1><br>
+<h2>Password: <%=users.password%></h2>
+
+
+<a href="/" type="submit">Home</a><br><br>
+
+<form action="/<%=users._id%>/destroy" method='post'>
+  <input type="submit" value="Delete">
+</form>

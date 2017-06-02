@@ -1,0 +1,10 @@
+<form action="/<%=users._id%>/update" method="post">
+  <div class="form-group">
+    <input type="hidden" value="<%=users%>" name="user">
+    <input type="text" name="email" value="<%=users.email%>">
+    <input type="text" name="password" value="<%=users.password%>">
+    <input type="submit" value="Update User">
+  </div>
+</form>
+
+<a href="/">Homepage</a>
